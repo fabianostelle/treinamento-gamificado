@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PolicyQuest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Tela Inicial -->
+    <div id="tela-inicial" class="tela">
+      <h1>🏆 PolicyQuest</h1>
+      <p>Treinamento Gamificado de Políticas e Procedimentos</p>
+      <button onclick="iniciarJogo()">Iniciar Treinamento</button>
+    </div>
+
+    <!-- Tela do Quiz -->
+    <div id="tela-quiz" class="tela" style="display: none;">
+      <div class="header">
+        <span id="pergunta-atual">1/10</span>
+        <span id="pontos">Pontos: 0</span>
+      </div>
+      <div class="progresso">
+        <div id="barra-progresso"></div>
+      </div>
+      <h2 id="pergunta-texto"></h2>
+      <div id="opcoes" class="opcoes"></div>
+      <div id="feedback" class="feedback"></div>
+    </div>
+
+    <!-- Tela Final -->
+    <div id="tela-final" class="tela" style="display: none;">
+      <h1>🎉 Treinamento Concluído!</h1>
+      <h2 id="pontuacao-final"></h2>
+      <p id="mensagem-final"></p>
+      <button onclick="mostrarRanking()">Ver Ranking</button>
+      <button onclick="reiniciarJogo()">Jogar Novamente</button>
+    </div>
+
+    <!-- Tela de Ranking -->
+    <div id="tela-ranking" class="tela" style="display: none;">
+      <h1>🏅 Ranking Geral</h1>
+      <ol id="lista-ranking"></ol>
+      <button onclick="voltarInicio()">Voltar ao Início</button>
+    </div>
+
+  </div>
+
+  <script src="perguntas.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
