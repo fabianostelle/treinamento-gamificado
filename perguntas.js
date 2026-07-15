@@ -1,59 +1,109 @@
 // perguntas.js
 const perguntasData = [
     {
-        pergunta: "Qual é o prazo máximo para comunicar um incidente de segurança da informação?",
-        opcoes: [
-            "24 horas",
-            "48 horas",
-            "72 horas",
-            "Imediatamente, no mesmo dia"
-        ],
-        resposta: 3,
-        explicacao: "De acordo com a Política de Segurança da Informação, todo incidente deve ser comunicado imediatamente."
+        pergunta: "Qual norma regulamenta as condições e meio ambiente de trabalho na indústria da construção?",
+        opcoes: ["NR-8", "NR-18", "NR-35", "NR-12"],
+        resposta: 1,
+        explicacao: "A NR-18 estabelece as diretrizes de segurança e saúde no trabalho na indústria da construção."
     },
     {
-        pergunta: "É permitido compartilhar senhas entre colegas de trabalho?",
+        pergunta: "O que significa o conceito de 'Patologia das Construções'?",
         opcoes: [
-            "Sim, em caso de urgência",
-            "Não, nunca é permitido",
-            "Sim, desde que seja o gestor",
-            "Apenas senhas temporárias"
+            "Estudo de doenças em trabalhadores da construção",
+            "Análise de falhas, deteriorações e deficiências nas edificações",
+            "Planejamento de cronograma de obras",
+            "Estudo do solo para fundações"
         ],
         resposta: 1,
-        explicacao: "A Política de Senhas proíbe expressamente o compartilhamento de senhas."
+        explicacao: "Patologia das Construções é a ciência que estuda as manifestações patológicas, suas causas e mecanismos de deterioração nas edificações."
     },
     {
-        pergunta: "O que você deve fazer ao receber um e-mail suspeito com anexo?",
+        pergunta: "Qual é o principal objetivo do Plano de Gerenciamento de Resíduos Sólidos (PGRS) em uma obra?",
         opcoes: [
-            "Abrir o anexo para verificar",
-            "Encaminhar para o TI",
-            "Não abrir e reportar ao time de Segurança da Informação",
-            "Responder pedindo mais informações"
-        ],
-        resposta: 2,
-        explicacao: "Nunca abra anexos suspeitos. Deve-se reportar imediatamente."
-    },
-    {
-        pergunta: "Qual o procedimento correto ao sair da mesa por mais de 10 minutos?",
-        opcoes: [
-            "Deixar o computador ligado",
-            "Bloquear a tela com Windows + L ou Ctrl + Cmd + Q",
-            "Desligar o monitor",
-            "Não é necessário fazer nada"
+            "Reduzir custos com materiais",
+            "Gerenciar a geração, armazenamento, transporte e destinação final dos resíduos",
+            "Aumentar a velocidade da obra",
+            "Controlar apenas os resíduos perigosos"
         ],
         resposta: 1,
-        explicacao: "A Política de Uso de Ativos exige o bloqueio da tela sempre que se afastar."
+        explicacao: "O PGRS visa minimizar os impactos ambientais através do manejo adequado dos resíduos gerados na obra."
     },
     {
-        pergunta: "É permitido usar pendrives pessoais na empresa?",
+        pergunta: "O que é o ' slump test ' ou ensaio de consistência do concreto?",
         opcoes: [
-            "Sim, desde que escaneados",
-            "Não é permitido",
-            "Apenas com autorização do gestor",
-            "Sim, para trabalho externo"
+            "Ensaio para medir a resistência do concreto",
+            "Ensaio para verificar a trabalhabilidade (consistência) do concreto fresco",
+            "Ensaio de tração do aço",
+            "Ensaio de impermeabilização"
         ],
         resposta: 1,
-        explicacao: "A Política de Segurança proíbe o uso de dispositivos de armazenamento não autorizados."
+        explicacao: "O slump test avalia a consistência e a trabalhabilidade do concreto antes do lançamento."
+    },
+    {
+        pergunta: "Qual a principal função do Projeto Executivo em uma obra?",
+        opcoes: [
+            "Apenas definir o valor final da obra",
+            "Detalhar todos os elementos necessários para a execução da obra",
+            "Fazer apenas o memorial descritivo",
+            "Apenas aprovar a obra na prefeitura"
+        ],
+        resposta: 1,
+        explicacao: "O Projeto Executivo contém todas as informações técnicas detalhadas para a execução fiel da obra."
+    },
+    {
+        pergunta: "De acordo com as normas de qualidade, o que significa a sigla ABNT NBR 6118?",
+        opcoes: [
+            "Norma de fundações",
+            "Projeto de estruturas de concreto armado",
+            "Norma de revestimentos",
+            "Norma de instalações elétricas"
+        ],
+        resposta: 1,
+        explicacao: "A NBR 6118 é a norma brasileira que estabelece os requisitos para o projeto de estruturas de concreto armado."
+    },
+    {
+        pergunta: "O que é 'cura do concreto' e por que é importante?",
+        opcoes: [
+            "Pintar o concreto após a secagem",
+            "Manter o concreto úmido para completar o processo de hidratação do cimento",
+            "Aplicar aditivos aceleradores",
+            "Fazer o acabamento superficial"
+        ],
+        resposta: 1,
+        explicacao: "A cura adequada evita fissuras e garante que o concreto atinja a resistência projetada."
+    },
+    {
+        pergunta: "Qual o principal risco ao executar escavações sem escoramento adequado?",
+        opcoes: [
+            "Aumento do custo da obra",
+            "Desmoronamento das paredes da escavação e soterramento",
+            "Atraso no cronograma",
+            "Dificuldade de acesso de máquinas"
+        ],
+        resposta: 1,
+        explicacao: "A falta de escoramento adequado pode causar acidentes graves por desmoronamento."
+    },
+    {
+        pergunta: "O que significa a sigla 'AFT' no contexto de fiscalização de obras?",
+        opcoes: [
+            "Agência Federal de Transportes",
+            "Auto de Fiscalização de Trabalho",
+            "Associação de Fiscalização Técnica",
+            "Atestado de Final de Obra"
+        ],
+        resposta: 1,
+        explicacao: "O Auto de Fiscalização de Trabalho (AFT) é emitido pela Auditoria Fiscal do Trabalho."
+    },
+    {
+        pergunta: "Qual a importância do 'Projeto de Acessibilidade' em uma edificação?",
+        opcoes: [
+            "Apenas para cumprir exigências estéticas",
+            "Garantir o acesso e uso seguro por pessoas com deficiência ou mobilidade reduzida",
+            "Facilitar a passagem de veículos",
+            "Reduzir o custo de manutenção"
+        ],
+        resposta: 1,
+        explicacao: "É obrigatório por lei (NBR 9050) garantir acessibilidade universal nas edificações."
     }
 ];
 
