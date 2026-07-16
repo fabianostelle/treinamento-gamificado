@@ -1,109 +1,133 @@
 // perguntas.js
 const perguntasData = [
+    // ==================== MÓDULO 1 - INTEGRAÇÃO ====================
     {
-        pergunta: "Qual norma regulamenta as condições e meio ambiente de trabalho na indústria da construção?",
-        opcoes: ["NR-8", "NR-18", "NR-35", "NR-12"],
-        resposta: 1,
-        explicacao: "A NR-18 estabelece as diretrizes de segurança e saúde no trabalho na indústria da construção."
-    },
-    {
-        pergunta: "O que significa o conceito de 'Patologia das Construções'?",
+        modulo: 1,
+        pergunta: "Qual o principal objetivo da integração de novos colaboradores?",
         opcoes: [
-            "Estudo de doenças em trabalhadores da construção",
-            "Análise de falhas, deteriorações e deficiências nas edificações",
-            "Planejamento de cronograma de obras",
-            "Estudo do solo para fundações"
+            "Apenas apresentar a empresa",
+            "Transmitir a cultura, normas, valores e procedimentos da empresa",
+            "Apenas assinar documentos",
+            "Treinar apenas as ferramentas de trabalho"
         ],
         resposta: 1,
-        explicacao: "Patologia das Construções é a ciência que estuda as manifestações patológicas, suas causas e mecanismos de deterioração nas edificações."
+        explicacao: "A integração visa alinhar o novo colaborador à cultura e normas da empresa."
     },
     {
-        pergunta: "Qual é o principal objetivo do Plano de Gerenciamento de Resíduos Sólidos (PGRS) em uma obra?",
+        modulo: 1,
+        pergunta: "O que é a 'Política de Integridade' da empresa?",
         opcoes: [
-            "Reduzir custos com materiais",
-            "Gerenciar a geração, armazenamento, transporte e destinação final dos resíduos",
-            "Aumentar a velocidade da obra",
-            "Controlar apenas os resíduos perigosos"
+            "Política de descontos para clientes",
+            "Conjunto de princípios éticos e de compliance da organização",
+            "Política de remuneração variável",
+            "Política de benefícios"
         ],
         resposta: 1,
-        explicacao: "O PGRS visa minimizar os impactos ambientais através do manejo adequado dos resíduos gerados na obra."
+        explicacao: "A Política de Integridade estabelece os padrões éticos esperados de todos os colaboradores."
+    },
+
+    // ==================== MÓDULO 2 - SEGURANÇA DO TRABALHO ====================
+    {
+        modulo: 2,
+        pergunta: "Qual o principal objetivo da NR-18?",
+        opcoes: [
+            "Regular instalações elétricas",
+            "Estabelecer diretrizes de segurança na indústria da construção",
+            "Regular transporte de cargas",
+            "Normatizar uso de EPI"
+        ],
+        resposta: 1,
+        explicacao: "A NR-18 trata especificamente de condições e meio ambiente de trabalho na construção."
     },
     {
-        pergunta: "O que é o ' slump test ' ou ensaio de consistência do concreto?",
+        modulo: 2,
+        pergunta: "O que significa EPI?",
         opcoes: [
-            "Ensaio para medir a resistência do concreto",
-            "Ensaio para verificar a trabalhabilidade (consistência) do concreto fresco",
-            "Ensaio de tração do aço",
-            "Ensaio de impermeabilização"
+            "Equipamento de Proteção Individual",
+            "Equipamento de Proteção Interna",
+            "Equipamento Principal de Impacto",
+            "Equipamento de Produção Industrial"
+        ],
+        resposta: 0,
+        explicacao: "EPI = Equipamento de Proteção Individual."
+    },
+
+    // ==================== MÓDULO 3 - QUALIDADE NA EXECUÇÃO ====================
+    {
+        modulo: 3,
+        pergunta: "O que é o 'slump test'?",
+        opcoes: [
+            "Teste de resistência do concreto",
+            "Ensaio de consistência do concreto fresco",
+            "Teste de impermeabilização",
+            "Ensaio de tração do aço"
         ],
         resposta: 1,
-        explicacao: "O slump test avalia a consistência e a trabalhabilidade do concreto antes do lançamento."
+        explicacao: "O slump test avalia a trabalhabilidade do concreto."
     },
     {
-        pergunta: "Qual a principal função do Projeto Executivo em uma obra?",
+        modulo: 3,
+        pergunta: "Qual norma regula o projeto de estruturas de concreto armado?",
         opcoes: [
-            "Apenas definir o valor final da obra",
-            "Detalhar todos os elementos necessários para a execução da obra",
-            "Fazer apenas o memorial descritivo",
-            "Apenas aprovar a obra na prefeitura"
+            "NBR 6120",
+            "NBR 6118",
+            "NBR 7480",
+            "NBR 7212"
         ],
         resposta: 1,
-        explicacao: "O Projeto Executivo contém todas as informações técnicas detalhadas para a execução fiel da obra."
+        explicacao: "A NBR 6118 é a norma principal para projeto de estruturas de concreto."
+    },
+
+    // ==================== MÓDULO 4 - PROCESSOS E PROCEDIMENTOS ====================
+    {
+        modulo: 4,
+        pergunta: "Qual a importância do 'Projeto Executivo'?",
+        opcoes: [
+            "Apenas para aprovação na prefeitura",
+            "Detalhar todos os elementos necessários para execução da obra",
+            "Definir apenas o cronograma",
+            "Fazer o orçamento da obra"
+        ],
+        resposta: 1,
+        explicacao: "O Projeto Executivo contém todas as informações técnicas detalhadas para execução."
     },
     {
-        pergunta: "De acordo com as normas de qualidade, o que significa a sigla ABNT NBR 6118?",
+        modulo: 4,
+        pergunta: "O que é o PGRS?",
         opcoes: [
-            "Norma de fundações",
-            "Projeto de estruturas de concreto armado",
-            "Norma de revestimentos",
-            "Norma de instalações elétricas"
+            "Plano de Gerenciamento de Resíduos Sólidos",
+            "Plano de Gestão de Recursos Humanos",
+            "Programa de Gestão de Segurança",
+            "Plano de Gerenciamento de Riscos"
+        ],
+        resposta: 0,
+        explicacao: "PGRS = Plano de Gerenciamento de Resíduos Sólidos."
+    },
+
+    // ==================== MÓDULO 5 - SUSTENTABILIDADE E MEIO AMBIENTE ====================
+    {
+        modulo: 5,
+        pergunta: "Qual é um dos principais objetivos da construção sustentável?",
+        opcoes: [
+            "Aumentar o custo da obra",
+            "Reduzir o impacto ambiental e promover eficiência de recursos",
+            "Apenas cumprir exigências legais",
+            "Utilizar apenas materiais importados"
         ],
         resposta: 1,
-        explicacao: "A NBR 6118 é a norma brasileira que estabelece os requisitos para o projeto de estruturas de concreto armado."
+        explicacao: "A construção sustentável busca reduzir impactos ambientais e otimizar recursos."
     },
     {
-        pergunta: "O que é 'cura do concreto' e por que é importante?",
+        modulo: 5,
+        pergunta: "O que significa 'Certificação LEED'?",
         opcoes: [
-            "Pintar o concreto após a secagem",
-            "Manter o concreto úmido para completar o processo de hidratação do cimento",
-            "Aplicar aditivos aceleradores",
-            "Fazer o acabamento superficial"
+            "Certificação de eficiência energética",
+            "Sistema de certificação de construções sustentáveis",
+            "Certificação de segurança do trabalho",
+            "Certificação de qualidade ISO"
         ],
         resposta: 1,
-        explicacao: "A cura adequada evita fissuras e garante que o concreto atinja a resistência projetada."
-    },
-    {
-        pergunta: "Qual o principal risco ao executar escavações sem escoramento adequado?",
-        opcoes: [
-            "Aumento do custo da obra",
-            "Desmoronamento das paredes da escavação e soterramento",
-            "Atraso no cronograma",
-            "Dificuldade de acesso de máquinas"
-        ],
-        resposta: 1,
-        explicacao: "A falta de escoramento adequado pode causar acidentes graves por desmoronamento."
-    },
-    {
-        pergunta: "O que significa a sigla 'AFT' no contexto de fiscalização de obras?",
-        opcoes: [
-            "Agência Federal de Transportes",
-            "Auto de Fiscalização de Trabalho",
-            "Associação de Fiscalização Técnica",
-            "Atestado de Final de Obra"
-        ],
-        resposta: 1,
-        explicacao: "O Auto de Fiscalização de Trabalho (AFT) é emitido pela Auditoria Fiscal do Trabalho."
-    },
-    {
-        pergunta: "Qual a importância do 'Projeto de Acessibilidade' em uma edificação?",
-        opcoes: [
-            "Apenas para cumprir exigências estéticas",
-            "Garantir o acesso e uso seguro por pessoas com deficiência ou mobilidade reduzida",
-            "Facilitar a passagem de veículos",
-            "Reduzir o custo de manutenção"
-        ],
-        resposta: 1,
-        explicacao: "É obrigatório por lei (NBR 9050) garantir acessibilidade universal nas edificações."
+        explicacao: "LEED é um dos principais sistemas de certificação de edifícios sustentáveis."
     }
 ];
 

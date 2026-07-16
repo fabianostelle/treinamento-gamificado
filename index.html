@@ -41,6 +41,18 @@
       <div id="feedback" class="feedback"></div>
     </div>
 
+    <!-- Tela de Resultado do Módulo -->
+    <div id="tela-resultado-modulo" class="tela" style="display: none;">
+      <h1 id="titulo-resultado">Módulo Concluído</h1>
+      <h2 id="pontuacao-modulo"></h2>
+      <p id="mensagem-resultado"></p>
+      
+      <button id="btn-continuar" onclick="proximoModulo()">Continuar para o Próximo Módulo</button>
+      <button id="btn-tentar-novamente" onclick="tentarNovamenteModulo()">Tentar Novamente</button>
+      
+      <button onclick="voltarInicio()" style="background: #64748b;">Voltar ao Início</button>
+    </div>
+
     <!-- Tela Final -->
     <div id="tela-final" class="tela" style="display: none;">
       <h1>🎉 Treinamento Concluído!</h1>
