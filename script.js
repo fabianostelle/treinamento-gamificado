@@ -9,6 +9,14 @@ let tempoRestante = 30;
 
 const totalModulos = 5;
 
+const nomesModulos = {
+    1: "Módulo 1: Integração",
+    2: "Módulo 2: Segurança do Trabalho",
+    3: "Módulo 3: Qualidade na Execução",
+    4: "Módulo 4: Processos e Procedimentos",
+    5: "Módulo 5: Sustentabilidade e Meio Ambiente"
+};
+
 // Sons
 const somAcerto = new Audio("https://assets.mixkit.co/sfx/preview/2964/2964.wav");
 const somErro = new Audio("https://assets.mixkit.co/sfx/preview/2957/2957.wav");
@@ -46,8 +54,11 @@ function mostrarPergunta() {
     clearInterval(timerInterval);
 
     const pergunta = perguntasModulo[perguntaAtualNoModulo];
+    const nomeModulo = nomesModulos[moduloAtual];
 
-    document.getElementById("pergunta-atual").textContent = `Módulo ${moduloAtual} - ${perguntaAtualNoModulo + 1}/${perguntasModulo.length}`;
+    document.getElementById("pergunta-atual").textContent = 
+        `${nomeModulo} | ${perguntaAtualNoModulo + 1}/${perguntasModulo.length}`;
+
     document.getElementById("pergunta-texto").textContent = pergunta.pergunta;
     
     const pontosEl = document.getElementById("pontos");
@@ -130,20 +141,21 @@ function mostrarResultadoModulo() {
     const telaResultado = document.getElementById("tela-resultado-modulo");
     telaResultado.style.display = "block";
 
+    const nomeModulo = nomesModulos[moduloAtual];
     const perguntasModulo = getPerguntasDoModulo(moduloAtual);
     const totalPerguntas = perguntasModulo.length;
     const acertouTodas = pontuacaoModuloAtual >= totalPerguntas * 100;
 
     document.getElementById("pontuacao-modulo").textContent = 
-        `Módulo ${moduloAtual} - ${pontuacaoModuloAtual} pontos`;
+        `${pontuacaoModuloAtual} pontos`;
 
     if (acertouTodas) {
-        document.getElementById("titulo-resultado").textContent = `✅ Módulo ${moduloAtual} Concluído!`;
-        document.getElementById("mensagem-resultado").innerHTML = "Parabéns! Você acertou todas as questões.";
+        document.getElementById("titulo-resultado").textContent = `✅ ${nomeModulo} Concluído!`;
+        document.getElementById("mensagem-resultado").innerHTML = "Parabéns! Você acertou todas as questões deste módulo.";
         document.getElementById("btn-continuar").style.display = "inline-block";
         document.getElementById("btn-tentar-novamente").style.display = "none";
     } else {
-        document.getElementById("titulo-resultado").textContent = `Módulo ${moduloAtual}`;
+        document.getElementById("titulo-resultado").textContent = `${nomeModulo}`;
         document.getElementById("mensagem-resultado").innerHTML = "Você não atingiu 100% de aproveitamento.<br>É necessário acertar todas para avançar.";
         document.getElementById("btn-continuar").style.display = "none";
         document.getElementById("btn-tentar-novamente").style.display = "inline-block";
@@ -182,7 +194,6 @@ function finalizarJogo() {
     salvarNoRanking();
 }
 
-// Funções de Ranking
 function salvarNoRanking() {
     let ranking = JSON.parse(localStorage.getItem("rankingPolicyQuest")) || [];
     ranking.push({
