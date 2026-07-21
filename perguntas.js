@@ -26,6 +26,21 @@ const perguntasData = [
         explicacao: "A Política de Integridade estabelece os padrões éticos esperados de todos os colaboradores."
     },
 
+    {
+        modulo: 1,
+        pergunta: "Qual documento é geralmente entregue durante a integração?",
+        opcoes: ["Apenas o holerite", "Manual do Colaborador e Políticas Internas", "Apenas o contrato de trabalho", "Apenas o crachá"],
+        resposta: 1,
+        explicacao: "O Manual do Colaborador e as Políticas Internas são documentos fundamentais na integração."
+    },
+    {
+        modulo: 1,
+        pergunta: "Qual o principal benefício da integração bem feita?",
+        opcoes: ["Reduzir custos", "Aumentar a retenção de talentos e o engajamento inicial", "Apenas cumprir exigência legal", "Acelerar o processo de contratação"],
+        resposta: 1,
+        explicacao: "Uma boa integração aumenta o engajamento e reduz a rotatividade nos primeiros meses."
+    },
+
     // ==================== MÓDULO 2 - SEGURANÇA DO TRABALHO ====================
     {
         modulo: 2,
@@ -50,6 +65,21 @@ const perguntasData = [
         ],
         resposta: 0,
         explicacao: "EPI = Equipamento de Proteção Individual."
+    },
+
+    {
+        modulo: 2,
+        pergunta: "Quando deve ser utilizado o cinto de segurança tipo paraquedista?",
+        opcoes: ["Em qualquer altura", "Em trabalhos a mais de 2 metros de altura com risco de queda", "Apenas em escadas", "Somente em trabalhos internos"],
+        resposta: 1,
+        explicacao: "O cinto tipo paraquedista é obrigatório em trabalhos com risco de queda superior a 2 metros."
+    },
+    {
+        modulo: 2,
+        pergunta: "O que é CIPA?",
+        opcoes: ["Comissão Interna de Prevenção de Acidentes", "Comissão de Integração de Pessoal", "Comissão de Investimento em Proteção", "Comissão Interna de Produção Acelerada"],
+        resposta: 0,
+        explicacao: "A CIPA tem como objetivo prevenir acidentes e doenças do trabalho."
     },
 
     // ==================== MÓDULO 3 - QUALIDADE NA EXECUÇÃO ====================
@@ -78,6 +108,21 @@ const perguntasData = [
         explicacao: "A NBR 6118 é a norma principal para projeto de estruturas de concreto."
     },
 
+    {
+        modulo: 3,
+        pergunta: "O que significa 'fck' no concreto?",
+        opcoes: ["Resistência característica do concreto à compressão", "Peso específico do concreto", "Coeficiente de segurança", "Tempo de cura"],
+        resposta: 0,
+        explicacao: "fck é a resistência característica do concreto à compressão."
+    },
+    {
+        modulo: 3,
+        pergunta: "Qual a importância do controle tecnológico do concreto?",
+        opcoes: ["Apenas para cumprir norma", "Garantir que o concreto atenda aos requisitos de resistência e durabilidade", "Reduzir custo de materiais", "Acelerar a execução"],
+        resposta: 1,
+        explicacao: "O controle tecnológico garante qualidade e segurança da estrutura."
+    },
+
     // ==================== MÓDULO 4 - PROCESSOS E PROCEDIMENTOS ====================
     {
         modulo: 4,
@@ -104,6 +149,21 @@ const perguntasData = [
         explicacao: "PGRS = Plano de Gerenciamento de Resíduos Sólidos."
     },
 
+    {
+        modulo: 4,
+        pergunta: "O que deve conter um 'Memorial Descritivo'?",
+        opcoes: ["Apenas o valor da obra", "Descrição detalhada dos serviços, materiais e especificações técnicas", "Só o cronograma físico-financeiro", "Apenas a ART"],
+        resposta: 1,
+        explicacao: "O Memorial Descritivo detalha os serviços e materiais a serem executados."
+    },
+    {
+        modulo: 4,
+        pergunta: "Qual a função do 'As Built'?",
+        opcoes: ["Documento de propaganda", "Registro final da obra como realmente foi executada", "Orçamento inicial", "Plano de marketing"],
+        resposta: 1,
+        explicacao: "O As Built é o registro final das alterações realizadas durante a obra."
+    },
+
     // ==================== MÓDULO 5 - SUSTENTABILIDADE E MEIO AMBIENTE ====================
     {
         modulo: 5,
@@ -128,6 +188,20 @@ const perguntasData = [
         ],
         resposta: 1,
         explicacao: "LEED é um dos principais sistemas de certificação de edifícios sustentáveis."
+    },
+    {
+        modulo: 5,
+        pergunta: "Qual prática contribui para a sustentabilidade em obra?",
+        opcoes: ["Descarte de todo entulho na rua", "Reaproveitamento de água e segregação de resíduos", "Uso intensivo de materiais descartáveis", "Ignorar licenças ambientais"],
+        resposta: 1,
+        explicacao: "O reaproveitamento de água e a correta gestão de resíduos são práticas sustentáveis."
+    },
+    {
+        modulo: 5,
+        pergunta: "O que é a 'Licença Ambiental'?",
+        opcoes: ["Autorização para iniciar a venda", "Documento obrigatório para obras que possam impactar o meio ambiente", "Licença para contratar funcionários", "Autorização de pagamento de impostos"],
+        resposta: 1,
+        explicacao: "A Licença Ambiental é obrigatória para atividades com potencial impacto ambiental."
     }
 ];
 
