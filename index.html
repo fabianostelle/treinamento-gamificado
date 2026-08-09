@@ -3,30 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stelle Corporate Academy</title>
+  <title>ConstruPlay</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
 
     
-
-    <!-- Tela Inicial -->
+<!-- Tela Inicial -->
 <div id="tela-inicial" class="tela">
-  <h1>🏆 Stelle Corporate Academy </h1>
-  <h2>🎯 Aprenda - Evolua - Conquiste </h2>
-  <p>Treinamento Corporativo Gamificado</p>
-  
-  <button onclick="iniciarJogo()">Iniciar Treinamento</button>
-  <button onclick="mostrarRanking()" style="background: linear-gradient(90deg, #64748b, #475569);">Ver Ranking</button>
+  <h1>🏆 ConstruPlay</h1>
+  <p>Treinamento Gamificado da Construção Civil</p>
 
-  <!-- Dados no canto inferior esquerdo -->
-  <div style="position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); text-align: center; font-size: 0.95rem; color: #94a3b8; line-height: 1.4;">
-    <strong>Fabiano Stelle</strong><br>
-    Curso: Engenharia de Software<br>
-    Faculdade: Uninter
-    @2026
+  <button onclick="irParaSelecaoAvatar()">Iniciar Treinamento</button>
+  <button onclick="mostrarRanking()" style="background: linear-gradient(90deg, #64748b, #475569);">Ver Ranking</button>
+</div>
+
+
+<!-- Tela de Seleção de Avatar -->
+<div id="tela-avatar" class="tela" style="display: none;">
+  <h1>Escolha seu Avatar</h1>
+  <p>Quem vai te acompanhar nesta jornada?</p>
+
+  <div style="display: flex; justify-content: center; gap: 40px; margin: 30px 0; flex-wrap: wrap;">
+    
+    <!-- Thor -->
+    <div onclick="selecionarAvatar(1)" style="cursor: pointer; text-align: center; max-width: 220px; padding: 15px; border-radius: 16px; border: 3px solid transparent; transition: 0.3s;" id="card-thor">
+      <img src="fotohomem.png" width="130" style="border-radius: 50%; border: 5px solid #60a5fa;">
+      <p style="margin-top: 12px; font-weight: bold; font-size: 1.3rem; color: #60a5fa;">Thor</p>
+      <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
+        "Sou técnico de obras e vou acompanhar você durante toda a jornada de aprendizagem. Vamos construir conhecimento juntos!"
+      </p>
+    </div>
+
+    <!-- Nina -->
+    <div onclick="selecionarAvatar(2)" style="cursor: pointer; text-align: center; max-width: 220px; padding: 15px; border-radius: 16px; border: 3px solid transparent; transition: 0.3s;" id="card-nina">
+      <img src="fotomulher.png" width="130" style="border-radius: 50%; border: 5px solid #f472b6;">
+      <p style="margin-top: 12px; font-weight: bold; font-size: 1.3rem; color: #f472b6;">Nina</p>
+      <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
+        "Sou engenheira civil e estarei ao seu lado em cada desafio. Complete os módulos, acumule pontos e torne-se um especialista!"
+      </p>
+    </div>
   </div>
+
+  <button onclick="confirmarAvatar()" id="btn-confirmar-avatar" style="display: none;">Continuar</button>
+  <button onclick="voltarInicio()" style="background: #64748b;">Voltar</button>
 </div>
 
     <!-- Tela do Quiz -->
@@ -41,6 +62,12 @@
       <h2 id="pergunta-texto"></h2>
       <div id="opcoes" class="opcoes"></div>
       <div id="feedback" class="feedback"></div>
+
+      <!-- Avatar durante o quiz (lado direito) -->
+      <div id="avatar-container" style="position: fixed; top: 80px; right: 150px; width: 180px; z-index: 100; display: none;">
+        <img id="avatar-img" style="width: 100%; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+      </div>
+
     </div>
 
     <!-- Tela de Resultado do Módulo -->

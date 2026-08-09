@@ -157,3 +157,47 @@ button:hover {
     .tela { padding: 30px 20px; }
 }
 
+/* Animações do Avatar */
+#avatar-container {
+    animation: avatarFloat 3s ease-in-out infinite;
+}
+
+#avatar-img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+    border: 5px solid #60a5fa;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+#avatar-img:hover {
+    transform: scale(1.08);
+}
+
+/* Animação de flutuação suave */
+@keyframes avatarFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Animação quando acerta */
+.avatar-acerto {
+    animation: avatarAcerto 0.8s ease;
+    border-color: #4ade80 !important;
+}
+
+/* Animação quando erra */
+.avatar-erro {
+    animation: avatarErro 0.6s ease;
+    border-color: #f87171 !important;
+}
+
+@keyframes avatarAcerto {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.15) rotate(8deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes avatarErro {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-12px); }
+    75% { transform: translateX(12px); }
+}
