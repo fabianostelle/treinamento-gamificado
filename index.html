@@ -7,17 +7,65 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
 
+  <!-- Título no topo -->
+<header style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 30px 20px 15px;
+    z-index: 1000;
+    background: transparent;
+  ">
+    <h1 style="
+      font-size: 3.6rem;
+      font-weight: 800;
+      margin: 0;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    ">
+      <span style="color: #1e3a5f;">CONSTRU</span>
+      <span style="color: #f59e0b;">PLAY</span>
+      <span style="font-size: 3.2rem;">🏗️</span>
+    </h1>
     
-<!-- Tela Inicial -->
-<div id="tela-inicial" class="tela">
-  <h1>🏆 ConstruPlay</h1>
-  <h2>🎯 Aprenda - Evolua - Conquiste</h2>
-  <p>Treinamento Gamificado da Construção Civil</p>
+    <p style="margin: 10px 0 4px; font-size: 1.25rem; color: #f1f5f9; font-weight: 500;">
+      — Aprenda • Evolua • Conquiste —
+    </p>
+    
+    <p style="margin: 0; font-size: 1.1rem; color: #cbd5e1;">
+      Plataforma de Treinamentos Gamificados
+    </p>
+  </header>
 
+  <!-- Conteúdo principal (com espaço no topo para não ficar atrás do título) -->
+  <div class="container" style="padding-top: 190px;">
+
+<!-- Tela Inicial -->
+<div id="tela-inicial" class="tela" style="max-width: 600px; margin: -60px auto 0;">
+  
+  <!-- Texto de boas-vindas -->
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="font-size: 1.9rem; color: #1e3a5f; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+      <span style="font-size: 1.8rem;">🏆</span>
+      Bem-vindo ao ConstruPlay!
+    </h2>
+    <p style="font-size: 1.2rem; color: #f1f5f9; line-height: 1.5; margin: 0;">
+      Aqui você aprende, evolui<br>
+      suas habilidades e conquista<br>
+      novas vitórias todos os dias.
+    </p>
+  </div>
+
+  <!-- Botões -->
   <button onclick="irParaSelecaoAvatar()">Iniciar Treinamento</button>
   <button onclick="mostrarRanking()" style="background: linear-gradient(90deg, #64748b, #475569);">Ver Ranking</button>
+
 </div>
 
 
@@ -101,7 +149,9 @@
 
   </div>
 
-  <script src="perguntas.js"></script>
-  <script src="script.js"></script>
+
+<script src="perguntas.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>

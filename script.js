@@ -1,3 +1,4 @@
+
 // script.js
 let moduloAtual = 1;
 let perguntaAtualNoModulo = 0;
@@ -114,6 +115,19 @@ function confirmarAvatar() {
     //mostrarPergunta();
 //}
 
+function atualizarFundo() {
+    const body = document.body;
+
+    if (moduloAtual >= 1 && moduloAtual <= 5) {
+        body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('modulo${moduloAtual}.png') center/cover no-repeat fixed`;
+    }
+}
+
+function fundoFinal() {
+    document.body.style.background = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('fundocompleto.png') center/cover no-repeat fixed`;
+}
+
+
 function resetarModulo() {
     perguntaAtualNoModulo = 0;
     pontuacaoModuloAtual = 0;
@@ -124,6 +138,7 @@ function getPerguntasDoModulo(modulo) {
 }
 
 function mostrarPergunta() {
+    atualizarFundo();
     const perguntasModulo = getPerguntasDoModulo(moduloAtual);
     
     if (perguntaAtualNoModulo >= perguntasModulo.length) {
@@ -258,6 +273,7 @@ function mostrarResultadoModulo() {
 }
 
 function proximoModulo() {
+    atualizarFundo();
     if (moduloAtual < totalModulos) {
         moduloAtual++;
         resetarModulo();
@@ -277,6 +293,7 @@ function tentarNovamenteModulo() {
 }
 
 function finalizarJogo() {
+    fundoFinal();
     clearInterval(timerInterval);
     tocarSom('acerto');   // Quando acerta
     tocarSom('erro');     // Quando erra
@@ -337,6 +354,7 @@ function voltarInicio() {
     document.getElementById("tela-final").style.display = "none";
     document.getElementById("tela-ranking").style.display = "none";
     document.getElementById("tela-quiz").style.display = "none";
+    document.body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('fundo.jpg') center/cover no-repeat fixed`;
     
     // Esconde o avatar do quiz (se estiver visível)
     const avatarContainer = document.getElementById("avatar-container");
