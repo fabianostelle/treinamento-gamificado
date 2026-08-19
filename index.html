@@ -8,43 +8,52 @@
 </head>
 <body>
 
-  <!-- Título no topo -->
 <header style="
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 30px 20px 15px;
-    z-index: 1000;
-    background: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 25px 15px 10px;
+  z-index: 1000;
+  background: transparent;
+">
+  <h1 style="
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
   ">
-    <h1 style="
-      font-size: 3.6rem;
-      font-weight: 800;
-      margin: 0;
-      letter-spacing: -1px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    ">
-      <span style="color: #1e3a5f;">CONSTRU</span>
-      <span style="color: #f59e0b;">PLAY</span>
-      <span style="font-size: 3.2rem;">🏗️</span>
-    </h1>
-    
-    <p style="margin: 10px 0 4px; font-size: 1.25rem; color: #f1f5f9; font-weight: 500;">
-      — Aprenda • Evolua • Conquiste —
-    </p>
-    
-    <p style="margin: 0; font-size: 1.1rem; color: #cbd5e1;">
-      Plataforma de Treinamentos Gamificados
-    </p>
-  </header>
+    <span style="color: #1e3a5f;">CONSTRU</span>
+    <span style="color: #f59e0b;">PLAY</span>
+    <span style="font-size: clamp(2rem, 5vw, 3.6rem);">🏗️</span>
+  </h1>
+  
+  <p style="
+    margin: 10px 0 4px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: #f1f5f9;
+    font-weight: 500;
+  ">
+    — Aprenda • Evolua • Conquiste —
+  </p>
+  
+  <p style="
+    margin: 0;
+    font-size: clamp(0.85rem, 2vw, 1.05rem);
+    color: #cbd5e1;
+  ">
+    Plataforma de Treinamentos Gamificados
+  </p>
+</header>
 
   <!-- Conteúdo principal (com espaço no topo para não ficar atrás do título) -->
-  <div class="container" style="padding-top: 190px;">
+  <div class="container" style="padding-top: clamp(140px, 22vw, 200px);">
 
 <!-- Tela Inicial -->
 <div id="tela-inicial" class="tela" style="max-width: 600px; margin: -60px auto 0;">
@@ -148,6 +157,42 @@
     </div>
 
   </div>
+
+<!-- Tela de Introdução do Módulo -->
+<div id="tela-intro-modulo" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 50;">
+  
+  <div style="position: absolute; left: 5%; top: 50%; transform: translateY(-50%); max-width: 420px; color: white;">
+    
+    <!-- Badge -->
+    <div style="display: inline-block; background: #1e3a5f; color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 18px;">
+      MÓDULO <span id="intro-numero-modulo">1</span>
+    </div>
+
+    <!-- Título -->
+    <h2 id="intro-titulo-modulo" style="font-size: 2.2rem; color: #1e3a5f; margin: 0 0 12px 0; font-weight: 700;">
+      Fundação do Conhecimento
+    </h2>
+
+    <!-- Descrição -->
+    <p id="intro-descricao-modulo" style="font-size: 1.15rem; color: #334155; margin: 0 0 25px 0; line-height: 1.5;">
+      Todo grande projeto começa com uma base sólida.
+    </p>
+
+    <!-- Progresso -->
+    <div style="margin-bottom: 30px;">
+      <p style="font-size: 0.95rem; color: #475569; margin-bottom: 8px;">
+        <span id="intro-progresso-texto">1/5</span> módulos
+      </p>
+      <div style="height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; max-width: 280px;">
+        <div id="intro-barra-progresso" style="height: 100%; width: 20%; background: linear-gradient(90deg, #22c55e, #16a34a); border-radius: 10px;"></div>
+      </div>
+    </div>
+
+    <!-- Botão -->
+    <button onclick="iniciarPerguntasModulo()" style="padding: 14px 32px;">Iniciar Módulo</button>
+  </div>
+
+</div>
 
 
 <script src="perguntas.js"></script>

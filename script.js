@@ -95,7 +95,7 @@ function confirmarAvatar() {
     document.getElementById("avatar-img").src = avatarSelecionado === 1 ? "fotohomem.png" : "fotomulher.png";
 
     resetarModulo();
-    mostrarPergunta();
+    mostrarIntroModulo();
     musicaFundo.currentTime = 0;
     musicaFundo.play().catch(() => {});
 }
@@ -279,7 +279,7 @@ function proximoModulo() {
         resetarModulo();
         document.getElementById("tela-resultado-modulo").style.display = "none";
         document.getElementById("tela-quiz").style.display = "block";
-        mostrarPergunta();
+        mostrarIntroModulo();
     } else {
         finalizarJogo();
     }
@@ -369,3 +369,56 @@ function voltarInicio() {
 window.onload = () => {
     document.getElementById("tela-inicial").style.display = "block";
 };
+
+const infoModulos = {
+  1: {
+    titulo: "Fundação do Conhecimento",
+    descricao: "Todo grande projeto começa com uma base sólida."
+  },
+  2: {
+    titulo: "Segurança do Trabalho",
+    descricao: "A segurança é o alicerce de toda obra bem-sucedida."
+  },
+  3: {
+    titulo: "Qualidade na Execução",
+    descricao: "A excelência se constrói detalhe por detalhe."
+  },
+  4: {
+    titulo: "Processos e Procedimentos",
+    descricao: "Organização e método garantem o sucesso da obra."
+  },
+  5: {
+    titulo: "Sustentabilidade e Meio Ambiente",
+    descricao: "Construir o futuro começa com responsabilidade ambiental."
+  }
+};
+
+function mostrarIntroModulo() {
+  const info = infoModulos[moduloAtual];
+
+  document.getElementById("intro-numero-modulo").textContent = moduloAtual;
+  document.getElementById("intro-titulo-modulo").textContent = info.titulo;
+  document.getElementById("intro-descricao-modulo").textContent = info.descricao;
+  document.getElementById("intro-progresso-texto").textContent = `${moduloAtual}/5`;
+  document.getElementById("intro-barra-progresso").style.width = `${(moduloAtual / 5) * 100}%`;
+
+  // Esconde outras telas
+  document.getElementById("tela-avatar").style.display = "none";
+  document.getElementById("tela-quiz").style.display = "none";
+  document.getElementById("tela-resultado-modulo").style.display = "none";
+  document.getElementById("tela-inicial").style.display = "none";
+
+  // Aplica o fundo do módulo
+  document.body.style.background = `linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.35)), url('modulo${moduloAtual}.png') center/cover no-repeat fixed`;
+
+  // Mostra a intro (sem card)
+  document.getElementById("tela-intro-modulo").style.display = "block";
+
+}
+
+function iniciarPerguntasModulo() {
+  document.getElementById("tela-intro-modulo").style.display = "none";
+  document.getElementById("tela-quiz").style.display = "block";
+  document.getElementById("avatar-container").style.display = "block";
+  mostrarPergunta();
+}
