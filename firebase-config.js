@@ -13,19 +13,23 @@ import {
     doc,
     setDoc,
     getDoc,
-    updateDoc
+    updateDoc,
+    query,
+    orderBy,
+    limit
 } from "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCe3J1eIoGzKyzEsm5kQQkmfyIzGBzI",
-    authDomain: "construplay.firebaseapp.com",
-    projectId: "construplay",
-    storageBucket: "construplay.firebasestorage.app",
-    messagingSenderId: "525216918938",
-    appId: "1:525216918938:web:683147da3a2f061a99e23"
-};
+  apiKey: "AIzaSyDZ3Uf2jElqGzKyzEsm5kQQkmfygIzGBzI",
+  authDomain: "construpaly.firebaseapp.com",
+  projectId: "construpaly",
+  storageBucket: "construpaly.firebasestorage.app",
+  messagingSenderId: "525216918938",
+  appId: "1:525216918938:web:8381497da3a2f061a99e23",
+  measurementId: "G-PCKBPPBYWY"
 
+}
 
 // Inicializa Firebase
 const app = initializeApp(firebaseConfig);
@@ -50,5 +54,8 @@ export {
     doc,
     setDoc,
     getDoc,
-    updateDoc
+    updateDoc,
+    query,
+    orderBy,
+    limit   
 };

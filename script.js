@@ -1,3 +1,15 @@
+import {
+    auth,
+    db,
+    signInAnonymously,
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    orderBy,
+    limit
+} from "./firebase-config.js";
+
 
 // script.js
 let moduloAtual = 1;
@@ -100,20 +112,113 @@ function confirmarAvatar() {
     musicaFundo.play().catch(() => {});
 }
 
-//function iniciarJogo() {
-    //nomeJogador = prompt("Digite seu nome:", "Aluno");
-   // if (!nomeJogador || nomeJogador.trim() === "") nomeJogador = "Anônimo";
+function falar(texto, callback) {
+    window.speechSynthesis.cancel();
+    pararMovimentoBoca();
 
-   // resetarModulo();
-    //document.getElementById("tela-inicial").style.display = "none";
-    //document.getElementById("tela-quiz").style.display = "block";
-   // document.getElementById("avatar-container").style.display = "block";
+    const utterance = new SpeechSynthesisUtterance(texto);
+    utterance.lang = "pt-BR";
+    utterance.rate = 1.15;
+    utterance.pitch = avatarSelecionado === 1 ? 0.95 : 1.15;
+    utterance.volume = 1;
+    
+    // Velocidade um pouco mais rápida e natural
+    utterance.rate = 1.15;
+    
+    // Tom mais natural
+    utterance.pitch = avatarSelecionado === 1 ? 0.95 : 1.15;
+    utterance.volume = 1;
 
-    // Define o avatar escolhido
-    //document.getElementById("avatar-img").src = avatarSelecionado === 1 ? "fotohomem.png" : "fotomulher.png";
+    const vozes = window.speechSynthesis.getVoices();
 
-    //mostrarPergunta();
-//}
+    // Lista de vozes preferidas (mais naturais)
+    const vozesMasculinas = ["Google português do Brasil", "Microsoft Daniel", "Daniel", "Luciano"];
+    const vozesFemininas = ["Google português do Brasil", "Microsoft Maria", "Maria", "Luciana", "Fernanda"];
+
+    let vozEscolhida = null;
+
+    if (avatarSelecionado === 1) {
+        // Thor - tenta voz masculina mais natural
+        vozEscolhida = vozes.find(v => 
+            v.lang.includes("pt") && 
+            vozesMasculinas.some(nome => v.name.includes(nome))
+        );
+    } else {
+        // Nina - tenta voz feminina mais natural
+        vozEscolhida = vozes.find(v => 
+            v.lang.includes("pt") && 
+            vozesFemininas.some(nome => v.name.includes(nome))
+        );
+    }
+
+    // Fallback
+    if (!vozEscolhida) {
+        vozEscolhida = vozes.find(v => v.lang === "pt-BR") || vozes[0];
+    }
+
+    if (vozEscolhida) {
+        utterance.voice = vozEscolhida;
+    }
+
+    // Inicia o movimento da boca
+    iniciarMovimentoBoca();
+
+    utterance.onend = () => {
+        pararMovimentoBoca();
+        if (callback) callback();
+    };
+
+    utterance.onerror = () => {
+        pararMovimentoBoca();
+        if (callback) callback();
+    };
+
+    window.speechSynthesis.speak(utterance);
+}
+
+// Carrega as vozes
+window.speechSynthesis.onvoiceschanged = () => {
+    window.speechSynthesis.getVoices();
+};
+
+let intervaloBoca = null;
+
+function iniciarMovimentoBoca() {
+    const avatarImg = document.getElementById("avatar-img");
+    if (!avatarImg) return;
+
+    const imagemNormal = avatarSelecionado === 1 ? "fotohomem.png" : "fotomulher.png";
+    const imagemFalando = avatarSelecionado === 1 ? "fotohomem-falando.png" : "fotomulher-falando.png";
+
+    let bocaAberta = false;
+
+    if (intervaloBoca) clearInterval(intervaloBoca);
+
+function alternarBoca() {
+        bocaAberta = !bocaAberta;
+        avatarImg.src = bocaAberta ? imagemFalando : imagemNormal;
+
+        // Intervalo variável para parecer mais natural (entre 120ms e 220ms)
+        const proximoIntervalo = 120 + Math.random() * 100;
+        
+        intervaloBoca = setTimeout(alternarBoca, proximoIntervalo);
+    }
+
+    // Começa o movimento
+    alternarBoca();
+}
+
+function pararMovimentoBoca() {
+    if (intervaloBoca) {
+        clearTimeout(intervaloBoca);
+        intervaloBoca = null;
+    }
+
+    const avatarImg = document.getElementById("avatar-img");
+    if (avatarImg) {
+        avatarImg.src = avatarSelecionado === 1 ? "fotohomem.png" : "fotomulher.png";
+    }
+}
 
 function atualizarFundo() {
     const body = document.body;
@@ -194,46 +299,37 @@ function verificarResposta(respostaEscolhida) {
     opcoesBtns.forEach(btn => btn.disabled = true);
 
     let pontosGanhos = 0;
+    let textoFala = "";
 
     if (respostaEscolhida === pergunta.resposta) {
-        tocarSom('acerto');   // Quando acerta
+        tocarSom("acerto");
         pontosGanhos = 50 + (tempoRestante * 5);
         pontuacaoModuloAtual += pontosGanhos;
         pontuacaoTotal += pontosGanhos;
 
         feedback.innerHTML = `<span style="color: #4ade80;">✅ Correto! +${pontosGanhos} pontos</span>`;
         opcoesBtns[respostaEscolhida].classList.add("correto");
+        textoFala = `Correto! ${pergunta.explicacao}`;
     } else {
-        tocarSom('erro');     // Quando erra
+        tocarSom("erro");
         feedback.innerHTML = `<span style="color: #f87171;">❌ Incorreto</span>`;
         opcoesBtns[respostaEscolhida].classList.add("incorreto");
         opcoesBtns[pergunta.resposta].classList.add("correto");
+        textoFala = `Incorreto. ${pergunta.explicacao}`;
     }
 
-    const avatarImg = document.getElementById("avatar-img");
-
-    // Animação do avatar
-    if (respostaEscolhida === pergunta.resposta) {
-        avatarImg.classList.remove("avatar-erro");
-        avatarImg.classList.add("avatar-acerto");
-    } else {
-        avatarImg.classList.remove("avatar-acerto");
-        avatarImg.classList.add("avatar-erro");
-    }
-
-    // Remove a animação depois
-    setTimeout(() => {
-        avatarImg.classList.remove("avatar-acerto", "avatar-erro");
-    }, 1200);
-
+    // Mostra a explicação na tela
     setTimeout(() => {
         feedback.innerHTML += `<br><br><strong>Explicação:</strong> ${pergunta.explicacao}`;
-        
+    }, 600);
+
+    // Avatar fala e só depois avança
+    falar(textoFala, () => {
         setTimeout(() => {
             perguntaAtualNoModulo++;
             mostrarPergunta();
-        }, 2800);
-    }, 800);
+        }, 800);
+    });
 }
 
 function pularPergunta() {
@@ -256,7 +352,7 @@ function mostrarResultadoModulo() {
     const nomeModulo = nomesModulos[moduloAtual];
     const perguntasModulo = getPerguntasDoModulo(moduloAtual);
     const totalPerguntas = perguntasModulo.length;
-    const acertouTodas = pontuacaoModuloAtual >= totalPerguntas * 100; // 100 pontos por pergunta
+    const acertouTodas = pontuacaoModuloAtual >= totalPerguntas * 100;
 
     document.getElementById("titulo-resultado").textContent = `${nomeModulo}`;
     document.getElementById("pontuacao-modulo").textContent = `${pontuacaoModuloAtual} pontos`;
@@ -265,10 +361,14 @@ function mostrarResultadoModulo() {
         document.getElementById("mensagem-resultado").innerHTML = "Parabéns! Você acertou todas as questões deste módulo.";
         document.getElementById("btn-continuar").style.display = "inline-block";
         document.getElementById("btn-tentar-novamente").style.display = "none";
+
+        falar(`Parabéns! Você concluiu o módulo de ${nomeModulo}. Pode seguir para o próximo.`);
     } else {
         document.getElementById("mensagem-resultado").innerHTML = "Você não atingiu 100% de aproveitamento.<br>É necessário acertar todas para avançar.";
         document.getElementById("btn-continuar").style.display = "none";
         document.getElementById("btn-tentar-novamente").style.display = "inline-block";
+
+        falar(`Atenção! Você precisa acertar todas as questões para avançar. Vamos tentar novamente?`);
     }
 }
 
@@ -310,41 +410,76 @@ function finalizarJogo() {
     musicaFundo.currentTime = 0;
 }
 
-function salvarNoRanking() {
-    let ranking = JSON.parse(localStorage.getItem("rankingPolicyQuest")) || [];
-    ranking.push({
-        nome: nomeJogador,
-        pontos: pontuacaoTotal,
-        data: new Date().toLocaleDateString('pt-BR')
-    });
-    ranking.sort((a, b) => b.pontos - a.pontos);
-    ranking = ranking.slice(0, 10);
-    localStorage.setItem("rankingPolicyQuest", JSON.stringify(ranking));
+// Login anônimo (necessário para gravar no Firestore)
+async function loginAnonimo() {
+    try {
+        await signInAnonymously(auth);
+        console.log("Usuário autenticado anonimamente");
+    } catch (erro) {
+        console.error("Erro no login anônimo:", erro);
+    }
 }
 
-function mostrarRanking() {
+
+// Chama o login quando a página carregar
+loginAnonimo();
+
+// Salvar pontuação
+async function salvarNoRanking() {
+    try {
+        await addDoc(collection(db, "ranking"), {
+            nome: nomeJogador,
+            pontos: pontuacaoTotal,
+            data: new Date().toLocaleDateString("pt-BR"),
+            criadoEm: new Date()
+        });
+        console.log("Ranking salvo com sucesso!");
+    } catch (erro) {
+        console.error("Erro ao salvar ranking:", erro);
+    }
+}
+
+// Mostrar ranking (Firebase)
+async function mostrarRanking() {
     document.getElementById("tela-inicial").style.display = "none";
+    document.getElementById("tela-final").style.display = "none";
     document.getElementById("tela-ranking").style.display = "block";
 
-    const ranking = JSON.parse(localStorage.getItem("rankingPolicyQuest")) || [];
     const lista = document.getElementById("lista-ranking");
-    lista.innerHTML = "";
+    lista.innerHTML = "<li>Carregando ranking...</li>";
 
-    if (ranking.length === 0) {
-        lista.innerHTML = "<li>Nenhum jogador registrado ainda.</li>";
-        return;
+    try {
+        const q = query(
+            collection(db, "ranking"),
+            orderBy("pontos", "desc"),
+            limit(10)
+        );
+
+        const snapshot = await getDocs(q);
+        lista.innerHTML = "";
+
+        if (snapshot.empty) {
+            lista.innerHTML = "<li>Nenhum jogador registrado ainda.</li>";
+            return;
+        }
+
+        let posicao = 1;
+        snapshot.forEach((doc) => {
+            const dados = doc.data();
+            const li = document.createElement("li");
+            li.innerHTML = `<strong>#${posicao}</strong> ${dados.nome} — <strong>${dados.pontos} pts</strong> <small>(${dados.data})</small>`;
+            lista.appendChild(li);
+            posicao++;
+        });
+    } catch (erro) {
+        console.error("Erro ao carregar ranking:", erro);
+        lista.innerHTML = "<li>Erro ao carregar o ranking.</li>";
     }
-
-    ranking.forEach((j, i) => {
-        const li = document.createElement("li");
-        li.innerHTML = `<strong>#${i+1}</strong> ${j.nome} — <strong>${j.pontos} pts</strong> <small>(${j.data})</small>`;
-        lista.appendChild(li);
-    });
 }
 
+
 function reiniciarJogo() {
-    document.getElementById("tela-final").style.display = "none";
-    iniciarJogo();
+    location.reload(); // Recarrega a página (solução mais simples e segura)
 }
 
 function voltarInicio() {
@@ -354,7 +489,7 @@ function voltarInicio() {
     document.getElementById("tela-final").style.display = "none";
     document.getElementById("tela-ranking").style.display = "none";
     document.getElementById("tela-quiz").style.display = "none";
-    document.body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('fundo.jpg') center/cover no-repeat fixed`;
+    document.body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('Foto2.jpg') center/cover no-repeat fixed`;
     
     // Esconde o avatar do quiz (se estiver visível)
     const avatarContainer = document.getElementById("avatar-container");
@@ -422,3 +557,14 @@ function iniciarPerguntasModulo() {
   document.getElementById("avatar-container").style.display = "block";
   mostrarPergunta();
 }
+
+// Expõe as funções para o HTML
+window.irParaSelecaoAvatar = irParaSelecaoAvatar;
+window.selecionarAvatar = selecionarAvatar;
+window.confirmarAvatar = confirmarAvatar;
+window.iniciarPerguntasModulo = iniciarPerguntasModulo;
+window.mostrarRanking = mostrarRanking;
+window.voltarInicio = voltarInicio;
+window.reiniciarJogo = reiniciarJogo;
+window.proximoModulo = proximoModulo;
+window.tentarNovamenteModulo = tentarNovamenteModulo;

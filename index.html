@@ -89,7 +89,7 @@
     <div onclick="selecionarAvatar(1)" style="cursor: pointer; text-align: center; max-width: 220px; padding: 15px; border-radius: 16px; border: 3px solid transparent; transition: 0.3s;" id="card-thor">
       <img src="fotohomem.png" width="130" style="border-radius: 50%; border: 5px solid #60a5fa;">
       <p style="margin-top: 12px; font-weight: bold; font-size: 1.3rem; color: #60a5fa;">Thor</p>
-      <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
+      <p style="font-size: 1.25rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
         "Sou técnico de obras e vou acompanhar você durante toda a jornada de aprendizagem. Vamos construir conhecimento juntos!"
       </p>
     </div>
@@ -98,7 +98,7 @@
     <div onclick="selecionarAvatar(2)" style="cursor: pointer; text-align: center; max-width: 220px; padding: 15px; border-radius: 16px; border: 3px solid transparent; transition: 0.3s;" id="card-nina">
       <img src="fotomulher.png" width="130" style="border-radius: 50%; border: 5px solid #f472b6;">
       <p style="margin-top: 12px; font-weight: bold; font-size: 1.3rem; color: #f472b6;">Nina</p>
-      <p style="font-size: 0.9rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
+      <p style="font-size: 1.25rem; color: #cbd5e1; line-height: 1.4; margin-top: 8px;">
         "Sou engenheira civil e estarei ao seu lado em cada desafio. Complete os módulos, acumule pontos e torne-se um especialista!"
       </p>
     </div>
@@ -121,8 +121,8 @@
       <div id="opcoes" class="opcoes"></div>
       <div id="feedback" class="feedback"></div>
 
-      <!-- Avatar durante o quiz (lado direito) -->
-      <div id="avatar-container" style="position: fixed; top: 80px; right: 150px; width: 180px; z-index: 100; display: none;">
+      <!-- Avatar durante o quiz (lado esquerdo) -->
+      <div id="avatar-container" style="position: fixed; top: 220px; left: 60px; width: 250px; z-index: 100; display: none;">
         <img id="avatar-img" style="width: 100%; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
       </div>
 
@@ -174,17 +174,17 @@
     </h2>
 
     <!-- Descrição -->
-    <p id="intro-descricao-modulo" style="font-size: 1.15rem; color: #334155; margin: 0 0 25px 0; line-height: 1.5;">
+    <p id="intro-descricao-modulo" style="font-size: 1.15rem; color: #e2e8f0; margin: 0 0 25px 0; line-height: 1.5;">
       Todo grande projeto começa com uma base sólida.
     </p>
 
     <!-- Progresso -->
     <div style="margin-bottom: 30px;">
-      <p style="font-size: 0.95rem; color: #475569; margin-bottom: 8px;">
+      <p style="font-size: 1.25rem; color: #e2e8f0; margin-bottom: 20px;">
         <span id="intro-progresso-texto">1/5</span> módulos
       </p>
-      <div style="height: 10px; background: #e2e8f0; border-radius: 10px; overflow: hidden; max-width: 280px;">
-        <div id="intro-barra-progresso" style="height: 100%; width: 20%; background: linear-gradient(90deg, #22c55e, #16a34a); border-radius: 10px;"></div>
+      <div style="height: 10px; background: #e2e8f0; border-radius: 20px; overflow: hidden; max-width: 280px;">
+        <div id="intro-barra-progresso" style="height: 100%; width: 20%; background: linear-gradient(90deg, #22c55e, #16a34a); border-radius: 20px;"></div>
       </div>
     </div>
 
@@ -194,9 +194,12 @@
 
 </div>
 
-
 <script src="perguntas.js"></script>
-<script src="script.js"></script>
+
+
+<script type="module" src="firebase-config.js"></script>
+<script type="module" src="script.js"></script>
+
 
 </body>
 </html>

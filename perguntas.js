@@ -7,7 +7,7 @@ const perguntasData = [
         opcoes: [
             "Apenas apresentar a empresa",
             "Transmitir a cultura, normas, valores e procedimentos da empresa",
-            "Apenas assinar documentos",
+            "Realizar exclusivamente o treinamento em ferramentas de trabalho",
             "Treinar apenas as ferramentas de trabalho"
         ],
         resposta: 1,
@@ -15,15 +15,15 @@ const perguntasData = [
     },
     {
         modulo: 1,
-        pergunta: "O que é a 'Política de Integridade' da empresa?",
+        pergunta: "Durante o processo de integração, qual prática contribui mais para que o novo colaborador se sinta parte da equipe?",
         opcoes: [
-            "Política de descontos para clientes",
-            "Conjunto de princípios éticos e de compliance da organização",
-            "Política de remuneração variável",
-            "Política de benefícios"
+            "Entregar apenas o crachá de identificação",
+            "Focar exclusivamente em treinamento técnicos",
+            "Solicitar a leitura individual de manuais sem interação",
+            "Apresentar os colegas e promover interação inicial"
         ],
-        resposta: 1,
-        explicacao: "A Política de Integridade estabelece os padrões éticos esperados de todos os colaboradores."
+        resposta: 3,
+        explicacao: "A integração não é só burocrática ou técnica ela cria vínculos e promove interação desde o início e ajuda o colaborador a se sentir acolhido e engajado."
     },
 
     {
@@ -36,23 +36,28 @@ const perguntasData = [
     {
         modulo: 1,
         pergunta: "Qual o principal benefício da integração bem feita?",
-        opcoes: ["Reduzir custos", "Aumentar a retenção de talentos e o engajamento inicial", "Apenas cumprir exigência legal", "Acelerar o processo de contratação"],
-        resposta: 1,
+        opcoes: [
+            "Reduzir custos operacionais de obra",
+            "Apenas cumprir exigência legal e obrigatória da empresa",
+            "Aumentar a retenção de talentos e o engajamento inicial",
+            "Acelerar o processo de contratação"
+        ],
+        resposta: 2,
         explicacao: "Uma boa integração aumenta o engajamento e reduz a rotatividade nos primeiros meses."
     },
 
     // ==================== MÓDULO 2 - SEGURANÇA DO TRABALHO ====================
     {
         modulo: 2,
-        pergunta: "Qual o principal objetivo da NR-18?",
+        pergunta: "Qual é a principal razão para o uso obrigatório de Equipamentos de Proteção Individual (EPIs) no canteiro de obras?",
         opcoes: [
-            "Regular instalações elétricas",
-            "Estabelecer diretrizes de segurança na indústria da construção",
-            "Regular transporte de cargas",
-            "Normatizar uso de EPI"
+            "Atender apenas às exigências legais",
+            "Facilitar a identificação dos colaboradores dentro da obra",
+            "Garantir a segurança e reduzir riscos de acidentes e lesões",
+            "Aumentar a produtividade sem pausas para descanso"
         ],
-        resposta: 1,
-        explicacao: "A NR-18 trata especificamente de condições e meio ambiente de trabalho na construção."
+        resposta: 2,
+        explicacao: "os EPIs têm como objetivo principal proteger a saúde e a integridade física dos trabalhadores, prevenindo acidentes e doenças ocupacionais."
     },
     {
         modulo: 2,
@@ -85,35 +90,40 @@ const perguntasData = [
     // ==================== MÓDULO 3 - QUALIDADE NA EXECUÇÃO ====================
     {
         modulo: 3,
-        pergunta: "O que é o 'slump test'?",
+        pergunta: "Qual prática é essencial para garantir a qualidade na execução da alvenaria?",
         opcoes: [
-            "Teste de resistência do concreto",
-            "Ensaio de consistência do concreto fresco",
-            "Teste de impermeabilização",
-            "Ensaio de tração do aço"
+            "Utilizar materiais sem inspeção prévia",
+            "Ignorar o alinhamento das paredes",
+            "Acelerar o processo sem controle de qualidade",
+            "Seguir rigorosamente o projeto e especificações técnicas"
         ],
-        resposta: 1,
-        explicacao: "O slump test avalia a trabalhabilidade do concreto."
+        resposta: 3,
+        explicacao: "seguir o projeto e as especificações técnicas assegura que a obra mantenha o padrão de qualidade esperado."
     },
     {
         modulo: 3,
-        pergunta: "Qual norma regula o projeto de estruturas de concreto armado?",
+        pergunta: "Qual medida deve ser adotada para garantir a qualidade no controle de materiais utilizados na obra?",
         opcoes: [
-            "NBR 6120",
-            "NBR 6118",
-            "NBR 7480",
-            "NBR 7212"
+            "Armazenar os materiais sem proteção contra intempéries",
+            "Utilizar qualquer material disponível sem inspeção",
+            "Registrar entradas e saídas em planilhas ou sistemas",
+            "Ignorar prazos de validade e especificações técnicas"
         ],
         resposta: 1,
-        explicacao: "A NBR 6118 é a norma principal para projeto de estruturas de concreto."
+        explicacao: "o registro e controle sistemático dos materiais assegura rastreabilidade, evita desperdícios e garante que apenas insumos adequados sejam utilizados na execução da obra."
     },
 
     {
         modulo: 3,
-        pergunta: "O que significa 'fck' no concreto?",
-        opcoes: ["Resistência característica do concreto à compressão", "Peso específico do concreto", "Coeficiente de segurança", "Tempo de cura"],
+        pergunta: "Durante a concretagem de uma laje, qual medida contribui diretamente para a qualidade da execução?",
+        opcoes: [
+            "Controlar o tempo de mistura e aplicação", 
+            "Dispensar o uso de vibrador de concreto", 
+            "Adicionar água sem critério para facilitar o trabalho", 
+            "Ignorar a cura do concreto após a aplicação"
+        ],
         resposta: 0,
-        explicacao: "fck é a resistência característica do concreto à compressão."
+        explicacao: "Sempre é importantecontrolar o tempo de mistura e aplicação garante resistência e durabilidade da estrutura."
     },
     {
         modulo: 3,
@@ -128,10 +138,10 @@ const perguntasData = [
         modulo: 4,
         pergunta: "Qual a importância do 'Projeto Executivo'?",
         opcoes: [
-            "Apenas para aprovação na prefeitura",
+            "Apenas para aprovação na prefeitura sem utilidade prática",
             "Detalhar todos os elementos necessários para execução da obra",
-            "Definir apenas o cronograma",
-            "Fazer o orçamento da obra"
+            "Atender apenas o cronograma solicitado pelo cliente",
+            "Fazer o orçamento da obra sem detalhamento técnico"
         ],
         resposta: 1,
         explicacao: "O Projeto Executivo contém todas as informações técnicas detalhadas para execução."
@@ -152,14 +162,24 @@ const perguntasData = [
     {
         modulo: 4,
         pergunta: "O que deve conter um 'Memorial Descritivo'?",
-        opcoes: ["Apenas o valor da obra", "Descrição detalhada dos serviços, materiais e especificações técnicas", "Só o cronograma físico-financeiro", "Apenas a ART"],
-        resposta: 1,
+        opcoes: [
+            "Apenas o valor da obra e o prazo de execução",
+            "Só o cronograma físico-financeiro da obra",
+            "Apenas a ART (Anotação de Responsabilidade Técnica) do engenheiro responsável",
+            "Descrição detalhada dos serviços, materiais e especificações técnicas"
+        ],
+        resposta: 3,
         explicacao: "O Memorial Descritivo detalha os serviços e materiais a serem executados."
     },
     {
         modulo: 4,
         pergunta: "Qual a função do 'As Built'?",
-        opcoes: ["Documento de propaganda", "Registro final da obra como realmente foi executada", "Orçamento inicial", "Plano de marketing"],
+        opcoes: [
+            "Documento de propaganda da obra",
+            "Registro final da obra como realmente foi executada",
+            "Orçamento inicial da obra",
+            "Plano de marketing da construtora"
+        ],
         resposta: 1,
         explicacao: "O As Built é o registro final das alterações realizadas durante a obra."
     },
@@ -169,22 +189,22 @@ const perguntasData = [
         modulo: 5,
         pergunta: "Qual é um dos principais objetivos da construção sustentável?",
         opcoes: [
-            "Aumentar o custo da obra",
+            "Aumentar o custo da obra sem benefícios ambientais",
+            "Apenas cumprir exigências legais sem preocupação ambiental",
             "Reduzir o impacto ambiental e promover eficiência de recursos",
-            "Apenas cumprir exigências legais",
-            "Utilizar apenas materiais importados"
+            "Utilizar apenas materiais importados sem considerar o impacto ambiental"
         ],
-        resposta: 1,
+        resposta: 2,
         explicacao: "A construção sustentável busca reduzir impactos ambientais e otimizar recursos."
     },
     {
         modulo: 5,
         pergunta: "O que significa 'Certificação LEED'?",
         opcoes: [
-            "Certificação de eficiência energética",
+            "Certificação de eficiência energética em eletrodomésticos",
             "Sistema de certificação de construções sustentáveis",
-            "Certificação de segurança do trabalho",
-            "Certificação de qualidade ISO"
+            "Certificação de segurança do trabalho em obras",
+            "Certificação de qualidade ISO 9001"
         ],
         resposta: 1,
         explicacao: "LEED é um dos principais sistemas de certificação de edifícios sustentáveis."
@@ -192,15 +212,25 @@ const perguntasData = [
     {
         modulo: 5,
         pergunta: "Qual prática contribui para a sustentabilidade em obra?",
-        opcoes: ["Descarte de todo entulho na rua", "Reaproveitamento de água e segregação de resíduos", "Uso intensivo de materiais descartáveis", "Ignorar licenças ambientais"],
+        opcoes: [
+            "Descarte de todo entulho na rua sem tratamento",
+            "Reaproveitamento de água e segregação de resíduos",
+            "Uso intensivo de materiais descartáveis sem reciclagem",
+            "Ignorar licenças ambientais e normas de proteção ambiental"
+        ],
         resposta: 1,
         explicacao: "O reaproveitamento de água e a correta gestão de resíduos são práticas sustentáveis."
     },
     {
         modulo: 5,
         pergunta: "O que é a 'Licença Ambiental'?",
-        opcoes: ["Autorização para iniciar a venda", "Documento obrigatório para obras que possam impactar o meio ambiente", "Licença para contratar funcionários", "Autorização de pagamento de impostos"],
-        resposta: 1,
+        opcoes: [
+            "Autorização para iniciar a venda de imóveis sem fiscalização",
+            "Licença para contratar funcionários sem treinamento",
+            "Autorização de pagamento de impostos sem fiscalização",
+            "Documento obrigatório para obras que possam impactar o meio ambiente"
+        ],
+        resposta: 3,
         explicacao: "A Licença Ambiental é obrigatória para atividades com potencial impacto ambiental."
     }
 ];
