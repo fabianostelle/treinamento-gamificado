@@ -57,7 +57,7 @@ const perguntasData = [
             "Aumentar a produtividade sem pausas para descanso"
         ],
         resposta: 2,
-        explicacao: "os EPIs têm como objetivo principal proteger a saúde e a integridade física dos trabalhadores, prevenindo acidentes e doenças ocupacionais."
+        explicacao: "Os EPIs têm como objetivo principal proteger a saúde e a integridade física dos trabalhadores, prevenindo acidentes e doenças ocupacionais."
     },
     {
         modulo: 2,
@@ -75,7 +75,12 @@ const perguntasData = [
     {
         modulo: 2,
         pergunta: "Quando deve ser utilizado o cinto de segurança tipo paraquedista?",
-        opcoes: ["Em qualquer altura", "Em trabalhos a mais de 2 metros de altura com risco de queda", "Apenas em escadas", "Somente em trabalhos internos"],
+        opcoes: [
+            "Em qualquer altura de trabalho",
+            "Em trabalhos a mais de 2 metros de altura com risco de queda",
+            "Apenas em escadas e andaimes",
+            "Somente em trabalhos internos sem risco de queda"
+        ],
         resposta: 1,
         explicacao: "O cinto tipo paraquedista é obrigatório em trabalhos com risco de queda superior a 2 metros."
     },
@@ -128,7 +133,12 @@ const perguntasData = [
     {
         modulo: 3,
         pergunta: "Qual a importância do controle tecnológico do concreto?",
-        opcoes: ["Apenas para cumprir norma", "Garantir que o concreto atenda aos requisitos de resistência e durabilidade", "Reduzir custo de materiais", "Acelerar a execução"],
+        opcoes: [
+            "Apenas para cumprir norma técnica sem impacto prático",
+            "Garantir que o concreto atenda aos requisitos de resistência e durabilidade",
+            "Reduzir custo de materiais sem preocupação com a qualidade",
+            "Acelerar a execução da obra sem testes de qualidade"
+        ],
         resposta: 1,
         explicacao: "O controle tecnológico garante qualidade e segurança da estrutura."
     },
