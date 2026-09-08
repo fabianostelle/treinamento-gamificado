@@ -77,6 +77,14 @@ musicaFundo.volume = 0.25;    // Volume mais baixo para não atrapalhar os efeit
 function irParaSelecaoAvatar() {
     document.getElementById("tela-inicial").style.display = "none";
     document.getElementById("tela-avatar").style.display = "block";
+
+    // Esconde o título
+    const header = document.querySelector("header");
+    if (header) header.classList.add("esconder-titulo");
+
+    // Ajusta o espaçamento
+    const container = document.querySelector(".container");
+    if (container) container.classList.add("sem-titulo");
 }
 
 function selecionarAvatar(num) {
@@ -483,22 +491,28 @@ function reiniciarJogo() {
 }
 
 function voltarInicio() {
-    // Esconde todas as telas
     document.getElementById("tela-avatar").style.display = "none";
     document.getElementById("tela-resultado-modulo").style.display = "none";
     document.getElementById("tela-final").style.display = "none";
     document.getElementById("tela-ranking").style.display = "none";
     document.getElementById("tela-quiz").style.display = "none";
-    document.body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('Foto2.jpg') center/cover no-repeat fixed`;
-    
-    // Esconde o avatar do quiz (se estiver visível)
-    const avatarContainer = document.getElementById("avatar-container");
-    if (avatarContainer) {
-        avatarContainer.style.display = "none";
-    }
 
-    // Mostra apenas a tela inicial
+    const intro = document.getElementById("tela-intro-modulo");
+    if (intro) intro.style.display = "none";
+
+    document.body.style.background = `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('Foto2.jpg') center/cover no-repeat fixed`;
+
+    const avatarContainer = document.getElementById("avatar-container");
+    if (avatarContainer) avatarContainer.style.display = "none";
+
     document.getElementById("tela-inicial").style.display = "block";
+
+    // Mostra o título novamente
+    const header = document.querySelector("header");
+    if (header) header.classList.remove("esconder-titulo");
+
+    const container = document.querySelector(".container");
+    if (container) container.classList.remove("sem-titulo");
 }
 
 window.onload = () => {

@@ -206,3 +206,85 @@ button:hover {
     25% { transform: translateX(-12px); }
     75% { transform: translateX(12px); }
 }
+
+/* ===== RESPONSIVO ===== */
+
+/* Tablets e celulares */
+@media (max-width: 900px) {
+
+  /* Título menor */
+  header {
+    padding: 15px 10px 8px !important;
+  }
+
+  header h1 {
+    font-size: clamp(1.8rem, 7vw, 2.6rem) !important;
+  }
+
+  .container {
+    padding-top: 130px !important;
+  }
+
+  /* Card das perguntas */
+  .tela {
+    width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
+    padding: 25px 18px !important;
+  }
+
+  #pergunta-texto {
+    font-size: 1.2rem !important;
+  }
+
+  .opcoes button {
+    font-size: 1rem !important;
+    padding: 14px 16px !important;
+  }
+
+  /* Avatar desce para baixo das perguntas */
+  #avatar-container {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    transform: none !important;
+    width: 120px !important;
+    margin: 25px auto 10px !important;
+    display: block !important;
+  }
+
+  #avatar-img {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.7rem !important;
+  }
+
+  .container {
+    padding-top: 120px !important;
+  }
+
+  #avatar-container {
+    width: 100px !important;
+  }
+
+  #avatar-img {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}
+
+/* Esconde o título quando estiver em outras telas */
+header.esconder-titulo {
+  display: none !important;
+}
+
+/* Ajuste de espaçamento quando o título some */
+.container.sem-titulo {
+  padding-top: 30px !important;
+}
