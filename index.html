@@ -140,14 +140,38 @@
       <button onclick="voltarInicio()" style="background: #64748b;">Voltar ao Início</button>
     </div>
 
-    <!-- Tela Final -->
-    <div id="tela-final" class="tela" style="display: none;">
-      <h1>🎉 Treinamento Concluído!</h1>
-      <h2 id="pontuacao-final"></h2>
-      <p id="mensagem-final"></p>
-      <button onclick="mostrarRanking()">Ver Ranking</button>
-      <button onclick="reiniciarJogo()">Jogar Novamente</button>
-    </div>
+<!-- Tela Final -->
+<div id="tela-final" class="tela" style="display: none;">
+  <h1>🎉 Treinamento Concluído!</h1>
+  <h2 id="pontuacao-final"></h2>
+  <p id="mensagem-final"></p>
+
+  <!-- Botão do Questionário -->
+  <div style="margin: 25px 0;">
+    <p style="margin-bottom: 12px; color: #cbd5e1;">
+      Sua opinião é muito importante!<br>
+      Responda o questionário de pesquisa:
+    </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScf7EZ6DKnow7l1Clmq_s754C3iRFOawqQayLtUOgy-NciHUA/viewform?usp=publish-editor" 
+       target="_blank"
+       style="
+         display: inline-block;
+         background: linear-gradient(90deg, #22c55e, #16a34a);
+         color: white;
+         padding: 14px 28px;
+         border-radius: 50px;
+         text-decoration: none;
+         font-weight: 600;
+         font-size: 1.05rem;
+         transition: 0.3s;
+       ">
+      📋 Responder Questionário
+    </a>
+  </div>
+
+  <button onclick="mostrarRanking()">Ver Ranking</button>
+  <button onclick="reiniciarJogo()">Jogar Novamente</button>
+</div>
 
     <!-- Tela de Ranking -->
     <div id="tela-ranking" class="tela" style="display: none;">
