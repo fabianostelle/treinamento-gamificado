@@ -114,7 +114,7 @@ const perguntasData = [
             "Utilizar qualquer material disponível sem inspeção",
             "Ignorar prazos de validade e especificações técnicas"
         ],
-        resposta: 2,
+        resposta: 1,
         explicacao: "o registro e controle sistemático dos materiais assegura rastreabilidade, evita desperdícios e garante que apenas insumos adequados sejam utilizados na execução da obra."
     },
 
