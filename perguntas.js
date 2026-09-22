@@ -110,11 +110,11 @@ const perguntasData = [
         pergunta: "Qual medida deve ser adotada para garantir a qualidade no controle de materiais utilizados na obra?",
         opcoes: [
             "Armazenar os materiais sem proteção contra intempéries",
-            "Utilizar qualquer material disponível sem inspeção",
             "Registrar entradas e saídas em planilhas ou sistemas",
+            "Utilizar qualquer material disponível sem inspeção",
             "Ignorar prazos de validade e especificações técnicas"
         ],
-        resposta: 1,
+        resposta: 2,
         explicacao: "o registro e controle sistemático dos materiais assegura rastreabilidade, evita desperdícios e garante que apenas insumos adequados sejam utilizados na execução da obra."
     },
 
